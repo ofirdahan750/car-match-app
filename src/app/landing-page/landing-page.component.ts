@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormData } from 'src/models';
-import { ThemePalette } from '@angular/material/core';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -23,7 +22,6 @@ export class LandingPageComponent {
     motorType: '',
   };
   today: Date = new Date();
-  // colorControl = new FormControl('primary' as ThemePalette);
   constructor(private snackBar: MatSnackBar) {}
 
   onFormSubmit(form: NgForm): void {

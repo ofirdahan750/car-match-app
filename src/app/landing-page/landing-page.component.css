@@ -12,6 +12,19 @@
   margin: 0;
   text-align: center;
 }
+.landing-page__title-span {
+  font-size: 2rem;
+  border-bottom: 1.5px solid #ffffffe3;
+  font-weight: 900;
+  color: #ffffffe3;
+}
+.landing-page__subtitle {
+  font-size: 1.5rem;
+  line-height: 1.451;
+  padding: 0;
+  margin: 0 0 20px;
+  text-align: center;
+}
 
 .landing-page__form {
   display: flex;
@@ -36,12 +49,22 @@
   .landing-page__title {
     font-size: 2.5rem;
     line-height: 1.1151;
+    font-weight: 400;
+  }
+  .landing-page__title span {
+    font-size: 2.65rem;
+  }
+  .landing-page__subtitle {
+    font-size: 2.2rem;
+    line-height: 1.1151;
+    font-weight: 200;
+    margin: 0 0 10px;
+  }
+  .landing-page__button-container {
+    margin: 20px 0;
   }
   .landing-page button {
     font-size: 1.375rem;
     padding: 19px;
-  }
-  .landing-page__button-container {
-    margin: 16px 0;
   }
 }

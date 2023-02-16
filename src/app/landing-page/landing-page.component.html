@@ -1,6 +1,11 @@
 <div>
   <mat-card class="landing-page">
-    <h1 class="landing-page__title">Find Your Perfect Car</h1>
+    <h1 class="landing-page__title">
+      let us Find Your <span class="landing-page__title-span">Perfect</span> Car
+    </h1>
+    <h2 class="landing-page__subtitle">
+      You can discover your Ideal Car with Our Help!
+    </h2>
     <form (ngSubmit)="onFormSubmit(detailsForm)" #detailsForm="ngForm">
       <mat-form-field class="landing-page__field" appearance="fill">
         <mat-label>Full Name</mat-label>
@@ -148,7 +153,7 @@
 
       <div class="landing-page__button-container">
         <button
-        class="landing-page__button"
+          class="landing-page__button"
           mat-raised-button
           color="primary"
           type="submit"
