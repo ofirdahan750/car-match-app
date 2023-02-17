@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "clean": "rm -rf package-lock.json && rm -rf node_modules",
+    "cleanstart": "npm run clean && npm i && ng serve --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Make minor CSS updates to the landing page in preparation for building the dashboard page\" && git push"
+    "push": "git add . && git commit -m \"Enhance landing page and header with logo, favicon, and necessary CSS updates, followed by incorporating service storage, prior to commencing work on the dashboard.\" && git push"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +23,8 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "chart.js": "^4.2.1",
+    "ng2-charts": "^4.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

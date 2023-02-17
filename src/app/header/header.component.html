@@ -1,7 +1,12 @@
 <header class="header">
   <mat-toolbar class="header__toolbar">
     <mat-toolbar-row class="header__row">
-      <span class="header__logo">Car Finder</span>
+      <img
+        src="assets/logo.png"
+        alt="App logo"
+        class="header__logo"
+        routerLink="/"
+      />
       <nav class="header__nav-wide">
         <button mat-button class="header__button" routerLink="/">Home</button>
         <button mat-button class="header__button" routerLink="/dashboard">
@@ -17,7 +22,7 @@
     <button
       mat-button
       (click)="closeNav()"
-      class="header__button"
+      class="header__button header__button_type_moblie"
       routerLink="/"
     >
       Home
@@ -25,7 +30,7 @@
     <button
       mat-button
       (click)="closeNav()"
-      class="header__button"
+      class="header__button header__button_type_moblie"
       routerLink="/dashboard"
     >
       Dashboard

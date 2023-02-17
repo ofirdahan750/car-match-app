@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm, FormControl } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormData } from 'src/models';
 @Component({

@@ -18,14 +18,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-
-
+import { MatTableModule } from '@angular/material/table';
 
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-
 
 @NgModule({
   declarations: [
@@ -51,8 +49,9 @@ import { FooterComponent } from './footer/footer.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSidenavModule,
-    MatIconModule ,
-    MatMenuModule
+    MatIconModule,
+    MatMenuModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
