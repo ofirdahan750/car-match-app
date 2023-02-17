@@ -1,8 +1,11 @@
+@import "./keyframe/keyframe.css";
+@import "./animation/animation.css";
+@import "./modifier/modifier.css";
+
 * {
   box-sizing: border-box;
 }
 html {
-  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -49,10 +52,7 @@ body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
-.reset-spacing {
-  margin: 0;
-  padding: 0;
-}
+
 @media screen and (pointer: coarse) {
   body::-webkit-scrollbar {
     width: 0em;

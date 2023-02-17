@@ -1,1 +1,50 @@
-<div>test</div>
+<section class="dashboard fade-in">
+  <mat-card class="dashboard__card">
+    <mat-list class="dashboard__list">
+      <mat-list-item class="dashboard__list-item">
+        Total Visitors : {{ visitorsCount }}
+      </mat-list-item>
+      <mat-divider class="dashboard__divider"></mat-divider>
+    </mat-list>
+    <mat-list-item class="dashboard__list-item">
+      Filled form successfully : {{ visitorsForms.length }}
+    </mat-list-item>
+    <mat-divider class="dashboard__divider"></mat-divider>
+    <mat-list-item class="dashboard__list-item">
+      Success % :
+      {{ (visitorsForms.length / visitorsCount) * 100 | number : ".1-3" }}
+    </mat-list-item>
+  </mat-card>
+
+  <div class="dashboard__table">
+    <table
+      mat-table
+      [dataSource]="visitorsForms"
+      class="mat-elevation-z8"
+      style="max-width: 100%; overflow-x: auto"
+    >
+      <ng-container
+        *ngFor="let column of displayedColumns"
+        [matColumnDef]="column"
+      >
+        <th mat-header-cell *matHeaderCellDef class="dashboard__table-header">
+          {{ column | camelToSpacedWords | titlecase }}
+        </th>
+        <td
+          ng
+          generate
+          pipe
+          camel-to-spaced-words
+          mat-cell
+          *matCellDef="let element"
+          class="dashboard__table-cell"
+        >
+          {{ element[column] }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+    </table>
+  </div>
+

@@ -18,22 +18,25 @@
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  <nav class="header__nav-moblie" [ngClass]="{ 'header__nav--open': navOpen }">
-    <button
-      mat-button
-      (click)="closeNav()"
-      class="header__button header__button_type_moblie"
-      routerLink="/"
-    >
-      Home
-    </button>
-    <button
-      mat-button
-      (click)="closeNav()"
-      class="header__button header__button_type_moblie"
-      routerLink="/dashboard"
-    >
-      Dashboard
-    </button>
-  </nav>
+  <ng-container *ngIf="navOpen">
+    <nav class="header__nav-moblie">
+      <button
+        mat-button
+        (click)="closeNav()"
+        class="header__button header__button_type_moblie"
+        routerLink="/"
+        header__nav-moblie
+      >
+        Home
+      </button>
+      <button
+        mat-button
+        (click)="closeNav()"
+        class="header__button header__button_type_moblie"
+        routerLink="/dashboard"
+      >
+        Dashboard
+      </button>
+    </nav>
+  </ng-container>
 </header>

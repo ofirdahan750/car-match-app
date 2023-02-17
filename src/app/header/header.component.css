@@ -21,13 +21,11 @@ header {
   display: none;
 }
 .header__nav-moblie {
-  display: none;
-}
-.header__nav--open {
   display: flex;
   flex-direction: column;
   background-color: #273346;
 }
+
 .header__button {
   min-height: 60px;
   font-size: 1.1875rem;

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ColorPickerModule } from 'ngx-color-picker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,11 +20,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { CamelToSpacedWordsPipe } from './camel-to-spaced-words.pipe';
 
 @NgModule({
   declarations: [
@@ -32,10 +38,14 @@ import { FooterComponent } from './footer/footer.component';
     LandingPageComponent,
     DashboardComponent,
     FooterComponent,
+    CamelToSpacedWordsPipe,
   ],
   imports: [
+    TableModule,
+    ButtonModule,
     MatSnackBarModule,
     MatListModule,
+    ColorPickerModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -52,6 +62,8 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatMenuModule,
     MatTableModule,
+    MatChipsModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

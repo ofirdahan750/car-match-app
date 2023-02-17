@@ -1,13 +1,14 @@
-<div>
+<section class="fade-in">
   <mat-card class="landing-page">
     <div class="landing-page__titles-wrapper">
-    <h1 class="landing-page__title reset-spacing">
-      Let us find your <span class="landing-page__title-span">Perfect</span> car
-    </h1>
-    <h2 class="landing-page__subtitle reset-spacing">
-      You can discover your Ideal Car with Our Help!
-    </h2>
-  </div>
+      <h1 class="landing-page__title reset-spacing">
+        Let us find your
+        <span class="landing-page__title-span">Perfect</span> car
+      </h1>
+      <h2 class="landing-page__subtitle reset-spacing">
+        You can discover your Ideal Car with Our Help!
+      </h2>
+    </div>
     <form (ngSubmit)="onFormSubmit(detailsForm)" #detailsForm="ngForm">
       <mat-form-field class="landing-page__field" appearance="fill">
         <mat-label>Full Name</mat-label>
@@ -19,9 +20,16 @@
           minlength="1"
           maxlength="40"
           name="fullName"
+          #fullNameInput="ngModel"
           pattern="^[a-zA-Z]+( [a-zA-Z]+)+$"
           [(ngModel)]="formData.fullName"
         />
+        <mat-error *ngIf="fullNameInput.hasError('pattern')">
+          Please enter a valid full name (e.g. John Smith).
+        </mat-error>
+        <mat-error *ngIf="!formData.fullName"
+          >Please enter a full name.</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field class="landing-page__field" appearance="fill">
@@ -51,6 +59,7 @@
         <mat-error *ngIf="emailInput.hasError('pattern')"
           >Please enter a valid email address</mat-error
         >
+        <mat-error *ngIf="!formData.email">Please enter an Email.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="landing-page__field" appearance="fill">
@@ -86,7 +95,16 @@
           [(ngModel)]="formData.address"
         />
       </mat-form-field>
-
+      <mat-form-field class="landing-page__field" appearance="fill">
+        <mat-label>Favorite color</mat-label>
+        <input
+          [(ngModel)]="formData.color"
+          [defaultValue]="formData.color"
+          type="color"
+          name="color"
+          matInput
+        />
+      </mat-form-field>
       <mat-form-field class="landing-page__field" appearance="fill">
         <mat-label>City</mat-label>
         <input
@@ -135,22 +153,29 @@
           [(ngModel)]="formData.country"
         />
       </mat-form-field>
-
       <mat-form-field class="landing-page__field" appearance="fill">
         <mat-label>Hobbies</mat-label>
-        <mat-select
-          required
-          name="hobbies"
-          [(ngModel)]="formData.hobbies"
-          multiple
-        >
-          <mat-option value="reading">Reading</mat-option>
-          <mat-option value="traveling">Traveling</mat-option>
-          <mat-option value="cooking">Cooking</mat-option>
-          <mat-option value="running">Running</mat-option>
-          <mat-option value="biking">Biking</mat-option>
-          <mat-option value="swimming">Swimming</mat-option>
-        </mat-select>
+        <mat-chip-grid #chipGrid aria-label="Enter hobby">
+          <mat-chip-row
+            *ngFor="let hobby of formData.hobbies"
+            (removed)="onRemoveHobby(hobby)"
+            [editable]="true"
+            (edited)="onEditHobby(hobby, $event)"
+            [aria-description]="'Click it to edit the hubby' + hobby"
+          >
+            {{ hobby }}
+            <button matChipRemove [attr.aria-label]="'remove ' + hobby">
+              <mat-icon>delete_forever<</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input
+            placeholder="Enter new Hobby"
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="onAddHobby($event)"
+          />
+        </mat-chip-grid>
       </mat-form-field>
 
       <div class="landing-page__button-container">
@@ -166,4 +191,4 @@
       </div>
     </form>
   </mat-card>
-</div>
+</section>

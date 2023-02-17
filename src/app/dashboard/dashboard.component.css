@@ -1,0 +1,19 @@
+.dashboard__table {
+  overflow: auto;
+  max-width: 100%;
+}
+.dashboard__table::-webkit-scrollbar {
+  height: 10px;
+}
+
+.dashboard__table::-webkit-scrollbar-track {
+  background: #b6b4b4;
+}
+
+.dashboard__table::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.dashboard__table::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
