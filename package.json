@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Make incrementVisitorCount work in LandingPageComponent    .\" && git push"
+    "push": "git add . && git commit -m \"Removed fonts files from project\" && git push"
   },
   "private": true,
   "dependencies": {
