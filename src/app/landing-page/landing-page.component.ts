@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormData } from 'src/models';
+import { StorageService } from '../service/storage.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
   formData: FormData = {
     fullName: '',
     gender: '',
@@ -22,7 +23,10 @@ export class LandingPageComponent {
     motorType: '',
   };
   today: Date = new Date();
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    public storageService: StorageService
+  ) {}
 
   onFormSubmit(form: NgForm): void {
     if (form.invalid) {
@@ -41,5 +45,9 @@ export class LandingPageComponent {
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
     });
+  }
+  ngOnInit(): void {
+    const storageService = new StorageService();
+    storageService.incrementVisitorCount();
   }
 }

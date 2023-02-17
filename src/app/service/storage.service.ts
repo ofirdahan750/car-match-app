@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const DATA_STORAGE_KEY = 'myAppData';
-const VISITORS_STORAGE_KEY = 'myAppVisitorCount';
+const VISITORS_STORAGE_KEY = 'landingPageVisitorCount';
 
 @Injectable({
   providedIn: 'root',

@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Enhance landing page and header with logo, favicon, and necessary CSS updates, followed by incorporating service storage, prior to commencing work on the dashboard.\" && git push"
+    "push": "git add . && git commit -m \"Make incrementVisitorCount work in LandingPageComponent    .\" && git push"
   },
   "private": true,
   "dependencies": {
