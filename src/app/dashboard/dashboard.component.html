@@ -17,11 +17,7 @@
   </mat-card>
 
   <div class="dashboard__table">
-    <table
-      mat-table
-      [dataSource]="visitorsForms"
-      class="mat-elevation-z8"
-    >
+    <table mat-table [dataSource]="visitorsForms" class="mat-elevation-z8">
       <ng-container
         *ngFor="let column of displayedColumns"
         [matColumnDef]="column"

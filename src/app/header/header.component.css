@@ -4,12 +4,12 @@ header {
 .header__toolbar {
   color: #b8b8b8c3;
   background-color: transparent;
-  pad: 5px 0;
 }
 .header__row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 100px;
 }
 .header__logo {
   max-height: 100%;

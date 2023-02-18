@@ -13,7 +13,7 @@ import { StorageService } from '../service/storage.service';
 export class DashboardComponent implements OnInit {
   visitorsCount: number = 0;
   visitorsForms: FormData[] | [] = [];
-  displayedColumns:string[] = [
+  displayedColumns: string[] = [
     'fullName',
     'gender',
     'email',

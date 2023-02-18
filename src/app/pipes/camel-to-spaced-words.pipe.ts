@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'camelToSpacedWords'
+  name: 'camelToSpacedWords',
 })
 export class CamelToSpacedWordsPipe implements PipeTransform {
   transform(value: string): string {

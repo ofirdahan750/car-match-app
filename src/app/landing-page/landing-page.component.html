@@ -71,7 +71,6 @@
           [matDatepicker]="picker"
           name="birthDate"
           #input="ngModel"
-          (ngModelChange)="onBirthDateChange()"
           [(ngModel)]="formData.birthDate"
           #birthDateInput="ngModel"
           [max]="datePipe.transform(today, 'yyyy-MM-dd')"
@@ -198,7 +197,7 @@
           (click)="onRandomFormFill()"
           type="button"
         >
-       Random Data
+          Random Data
         </button>
       </div>
     </form>

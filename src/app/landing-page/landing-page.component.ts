@@ -67,11 +67,6 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
-  onBirthDateChange(): void {
-    console.log('Birth Date:', this.formData.birthDate);
-    console.log('today', this.today);
-  }
-
   onAddHobby(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
