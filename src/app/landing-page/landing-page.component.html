@@ -70,10 +70,11 @@
           required
           [matDatepicker]="picker"
           name="birthDate"
+          #input="ngModel"
+          (ngModelChange)="onBirthDateChange()"
           [(ngModel)]="formData.birthDate"
           #birthDateInput="ngModel"
-          (mousedown)="picker.open()"
-          max="{{ today | date : 'yyyy-MM-dd' }}"
+          [max]="datePipe.transform(today, 'yyyy-MM-dd')"
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -99,7 +100,7 @@
         <mat-label>Favorite color</mat-label>
         <input
           [(ngModel)]="formData.color"
-          [defaultValue]="formData.color"
+          [value]="'#ffffff'"
           type="color"
           name="color"
           matInput
@@ -187,6 +188,17 @@
           [disabled]="!detailsForm.form.valid"
         >
           Send
+        </button>
+      </div>
+      <div class="landing-page__button-container">
+        <button
+          class="landing-page__button"
+          mat-raised-button
+          color="primary"
+          (click)="onRandomFormFill()"
+          type="button"
+        >
+       Random Data
         </button>
       </div>
     </form>

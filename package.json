@@ -9,11 +9,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Completed dashboard table and statistics implementation. Only remaining to add the dashboard bars.\" && git push"
+    "push": "git add . && git commit -m \"Add random data generation feature and fix date picker bug.\" && git push"
   },
   "private": true,
   "dependencies": {
-    "@angular-material-components/color-picker": "^9.0.0",
     "@angular/animations": "^15.1.5",
     "@angular/cdk": "^15.1.4",
     "@angular/common": "^15.1.0",
@@ -26,8 +25,7 @@
     "@angular/router": "^15.1.0",
     "chart.js": "^4.2.1",
     "ng2-charts": "^4.1.1",
-    "ngx-color-picker": "^13.0.0",
-    "primeng": "^15.2.0",
+    "package": "^1.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

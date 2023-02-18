@@ -19,7 +19,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <ng-container *ngIf="navOpen">
-    <nav class="header__nav-moblie">
+    <nav class="header__nav-moblie" [@fadeInOut]>
       <button
         mat-button
         (click)="closeNav()"

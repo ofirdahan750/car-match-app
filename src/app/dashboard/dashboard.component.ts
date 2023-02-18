@@ -9,7 +9,7 @@ import { StorageService } from '../service/storage.service';
 })
 export class DashboardComponent implements OnInit {
   visitorsCount: number = 0;
-  visitorsForms: object[] = [];
+  visitorsForms: FormData[] | [] = [];
   displayedColumns: string[] = [
     'fullName',
     'gender',
@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
   camelToSpacedWords(str: string): string {
     return str.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
+
   ngOnInit(): void {
     this.visitorsCount = StorageService.getVisitorCount();
     this.visitorsForms = this.storageService.getData() || [];
