@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Add random data generation feature and fix date picker bug.\" && git push"
+    "push": "git add . && git commit -m \"Done \" && git push"
   },
   "private": true,
   "dependencies": {

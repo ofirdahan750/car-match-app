@@ -17,3 +17,6 @@
 .dashboard__table::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.dashboard__list-item {
+  text-align: center;
+}

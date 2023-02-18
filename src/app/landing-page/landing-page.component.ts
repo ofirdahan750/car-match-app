@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormData } from 'src/models';
 import { MatChipInputEvent, MatChipEditedEvent } from '@angular/material/chips';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { StorageService } from '../service/storage.service';
 import { DatePipe } from '@angular/common';
+import { FormData } from 'src/models';
 
 @Component({
   selector: 'app-landing-page',
@@ -21,14 +21,7 @@ export class LandingPageComponent implements OnInit {
     address: '',
     city: '',
     country: '',
-    hobbies: [
-      'Reading',
-      'Traveling',
-      'Cooking',
-      'Running',
-      'Biking',
-      'Swimming',
-    ],
+    hobbies: [],
     color: '#ffffff',
     seats: 2,
     motorType: '',
@@ -36,6 +29,7 @@ export class LandingPageComponent implements OnInit {
   today: Date = new Date();
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   datePipe: DatePipe = new DatePipe('en-US');
+
   constructor(
     private snackBar: MatSnackBar,
     private storageService: StorageService
@@ -72,7 +66,8 @@ export class LandingPageComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
-  onBirthDateChange() {
+
+  onBirthDateChange(): void {
     console.log('Birth Date:', this.formData.birthDate);
     console.log('today', this.today);
   }
@@ -93,7 +88,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
-  onEditHobby(hobby: string, event: MatChipEditedEvent) {
+  onEditHobby(hobby: string, event: MatChipEditedEvent): void {
     const value = event.value.trim();
     if (!value) {
       this.onRemoveHobby(hobby);
@@ -104,73 +99,57 @@ export class LandingPageComponent implements OnInit {
       this.formData.hobbies[index] = value;
     }
   }
-  onRandomFormFill(): void {
-    const fullNameOptions = [
-      'John Smith',
-      'Emily Brown',
-      'Daniel Johnson',
-      'Sophia Davis',
-      'Andrew Wilson',
-    ];
-    const genderOptions = ['male', 'female', 'other'];
-    const emailOptions = [
-      'john.smith@example.com',
-      'emily.brown@example.com',
-      'daniel.johnson@example.com',
-      'sophia.davis@example.com',
-      'andrew.wilson@example.com',
-    ];
-    const addressOptions = [
-      '123 Main St.',
-      '456 Elm St.',
-      '789 Oak St.',
-      '1011 Maple St.',
-      '1213 Pine St.',
-    ];
-    const cityOptions = [
-      'New York',
-      'Los Angeles',
-      'Chicago',
-      'Houston',
-      'Phoenix',
-    ];
-    const countryOptions = ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina'];
-    const motorTypeOptions = ['fuel', 'electric'];
 
-    const randomFullName =
-      fullNameOptions[Math.floor(Math.random() * fullNameOptions.length)];
-    const randomGender =
-      genderOptions[Math.floor(Math.random() * genderOptions.length)];
-    const randomEmail =
-      emailOptions[Math.floor(Math.random() * emailOptions.length)];
+  onRandomFormFill(): void {
+    const options = {
+      fullName: [
+        'John Smith',
+        'Emily Brown',
+        'Daniel Johnson',
+        'Sophia Davis',
+        'Andrew Wilson',
+      ],
+      gender: ['male', 'female', 'other'],
+      email: [
+        'john.smith@example.com',
+        'emily.brown@example.com',
+        'daniel.johnson@example.com',
+        'sophia.davis@example.com',
+        'andrew.wilson@example.com',
+      ],
+      address: [
+        '123 Main St.',
+        '456 Elm St.',
+        '789 Oak St.',
+        '1011 Maple St.',
+        '1213 Pine St.',
+      ],
+      city: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'],
+      country: ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina'],
+      motorType: ['fuel', 'electric'],
+    };
+    const randomIndex = (arr: any[]) => Math.floor(Math.random() * arr.length);
     const randomBirthDate = new Date(
       +new Date('1950-01-01') +
         Math.floor(
           Math.random() * (+new Date('2005-12-31') - +new Date('1950-01-01'))
         )
     );
-    const randomAddress =
-      addressOptions[Math.floor(Math.random() * addressOptions.length)];
-    const randomCity =
-      cityOptions[Math.floor(Math.random() * cityOptions.length)];
-    const randomCountry =
-      countryOptions[Math.floor(Math.random() * countryOptions.length)];
     const randomHobbies = ['Reading', 'Traveling', 'Swimming'];
     const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     const randomSeats = Math.floor(Math.random() * 6) + 2;
-    const randomMotorType =
-      motorTypeOptions[Math.floor(Math.random() * motorTypeOptions.length)];
-
-    this.formData.fullName = randomFullName;
-    this.formData.gender = randomGender;
-    this.formData.email = randomEmail;
-    this.formData.birthDate = randomBirthDate.toISOString();
-    this.formData.address = randomAddress;
-    this.formData.city = randomCity;
-    this.formData.country = randomCountry;
-    this.formData.hobbies = randomHobbies;
-    this.formData.color = randomColor;
-    this.formData.seats = randomSeats;
-    this.formData.motorType = randomMotorType;
+    this.formData = {
+      fullName: options.fullName[randomIndex(options.fullName)],
+      gender: options.gender[randomIndex(options.gender)],
+      email: options.email[randomIndex(options.email)],
+      birthDate: randomBirthDate.toISOString(),
+      address: options.address[randomIndex(options.address)],
+      city: options.city[randomIndex(options.city)],
+      country: options.country[randomIndex(options.country)],
+      hobbies: randomHobbies,
+      color: randomColor,
+      seats: randomSeats,
+      motorType: options.motorType[randomIndex(options.motorType)],
+    };
   }
 }
