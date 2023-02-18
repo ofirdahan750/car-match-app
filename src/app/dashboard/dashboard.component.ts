@@ -3,7 +3,7 @@ import { FormData } from 'src/models';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-import { StorageService } from '../service/storage.service';
+import { StorageService } from '../services/StorageService/storage.service';
 
 @Component({
   selector: 'app-dashboard',

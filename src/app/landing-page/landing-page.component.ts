@@ -3,9 +3,10 @@ import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatChipInputEvent, MatChipEditedEvent } from '@angular/material/chips';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
-import { StorageService } from '../service/storage.service';
+import { StorageService } from '../services/StorageService/storage.service';
 import { DatePipe } from '@angular/common';
 import { FormData } from 'src/models';
+import { RandomFormService } from '../services/RandomFormService/random-form.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -32,7 +33,8 @@ export class LandingPageComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private randomFormService: RandomFormService
   ) {}
 
   ngOnInit(): void {
@@ -96,55 +98,8 @@ export class LandingPageComponent implements OnInit {
   }
 
   onRandomFormFill(): void {
-    const options = {
-      fullName: [
-        'John Smith',
-        'Emily Brown',
-        'Daniel Johnson',
-        'Sophia Davis',
-        'Andrew Wilson',
-      ],
-      gender: ['male', 'female', 'other'],
-      email: [
-        'john.smith@example.com',
-        'emily.brown@example.com',
-        'daniel.johnson@example.com',
-        'sophia.davis@example.com',
-        'andrew.wilson@example.com',
-      ],
-      address: [
-        '123 Main St.',
-        '456 Elm St.',
-        '789 Oak St.',
-        '1011 Maple St.',
-        '1213 Pine St.',
-      ],
-      city: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'],
-      country: ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina'],
-      motorType: ['fuel', 'electric'],
-    };
-    const randomIndex = (arr: any[]) => Math.floor(Math.random() * arr.length);
-    const randomBirthDate = new Date(
-      +new Date('1950-01-01') +
-        Math.floor(
-          Math.random() * (+new Date('2005-12-31') - +new Date('1950-01-01'))
-        )
-    );
-    const randomHobbies = ['Reading', 'Traveling', 'Swimming'];
-    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-    const randomSeats = Math.floor(Math.random() * 6) + 2;
-    this.formData = {
-      fullName: options.fullName[randomIndex(options.fullName)],
-      gender: options.gender[randomIndex(options.gender)],
-      email: options.email[randomIndex(options.email)],
-      birthDate: randomBirthDate.toISOString(),
-      address: options.address[randomIndex(options.address)],
-      city: options.city[randomIndex(options.city)],
-      country: options.country[randomIndex(options.country)],
-      hobbies: randomHobbies,
-      color: randomColor,
-      seats: randomSeats,
-      motorType: options.motorType[randomIndex(options.motorType)],
-    };
+    this.randomFormService.generateRandomFormData().subscribe((formData) => {
+      this.formData = formData;
+    });
   }
 }

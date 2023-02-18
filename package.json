@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "push": "git add . && git commit -m \"Fixing the logo \" && git push"
+    "push": "git add . && git commit -m \"Fixing the service \" && git push"
   },
   "private": true,
   "dependencies": {
